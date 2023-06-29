@@ -40,5 +40,8 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@macfja/svelte-persistent-store": "^2.3.0"
+	}
 }

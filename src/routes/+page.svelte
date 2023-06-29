@@ -2,12 +2,14 @@
   import Title from "./Title.svelte";
   import RollerWheel from "./RollerWheel.svelte";
   import ControllerBar from "./ControllerBar.svelte";
+  import Edit from "./Edit.svelte"
 </script>
 
 <main class="w-3/4 md:w-1/2 space-y-6">
   <Title />
   <ControllerBar />
   <RollerWheel />
+  <Edit />
 </main>
 
 <style lang="postcss">
