@@ -13,7 +13,7 @@
   <button
     class="hover:bg-gray-200 rounded px-3 py-1 text-gray-300 hover:text-gray-500"
     on:click={setDefaultItes}
-    >Default Items</button
+    >Reset Items</button
   >
   <button
     class="hover:bg-gray-200 rounded px-3 py-1 text-gray-300 hover:text-gray-500"
