@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   let ty: number = 0;
   let finalIndex = -1;
   let run: boolean = false;
-  const itemHeight = 3.75;
+  let itemHeight = 3.75;
 
   let list: string[] = [
+    "炒年糕",
     "馄饨",
     "拉面",
     "烩面",
@@ -43,6 +44,7 @@
     "煎饼果子",
     "生煎",
     "炒年糕",
+    "馄饨",
   ];
 
   let inter = setInterval(() => {
@@ -61,28 +63,57 @@
     clearInterval(inter);
   });
 
+  onMount(() => {
+    const bodyWidth = document.body.clientWidth;
+    // console.log(bodyWidth);
+    if (bodyWidth <= 768) {
+      itemHeight = 3;
+    }
+  });
+
   function doGo() {
     run = !run;
     if (run) {
-      finalIndex = list.length + 999
+      finalIndex = list.length + 999;
     }
-    let index = Math.round(ty / itemHeight)
+    let index = Math.round(ty / itemHeight);
+
+    switch (index) {
+      case 0:
+        index = 1;
+        ty = itemHeight * 1;
+      case list.length - 1:
+        index = list.length - 2;
+        ty = itemHeight * (list.length - 2);
+    }
+
     // console.log(ty / itemHeight);
     // console.log(Math.round(ty / itemHeight));
-    ty = itemHeight * Math.round(ty / itemHeight) - itemHeight*0.8;
-    // console.log(list[index])
-    finalIndex = index
+    ty = itemHeight * Math.round(ty / itemHeight) - itemHeight * 0.8;
+    // console.log(list[index]);
+    finalIndex = index;
   }
 </script>
 
 <div>
-  <div class="relative h-40 border-2 border-gray-200 rounded overflow-hidden">
+  <div
+    class="relative h-32 md:h-40 border-2 border-gray-200 rounded overflow-hidden"
+  >
     <ul
-      class="absolute left-0 top-0 w-full text-center {!run?'transition-transform duration-[1000ms]':''}"
+      class="absolute left-0 top-0 w-full text-center {!run
+        ? 'transition-transform duration-[1000ms]'
+        : ''}"
       style="transform: translateY(-{ty}rem)"
     >
-      {#each list as item,i }
-        <li class="font-bold text-6xl font-mono blur-xs {!run && finalIndex === i ? '':''}">{item}</li>
+      {#each list as item, i}
+        <li
+          class="font-bold text-5xl md:text-6xl font-mono blur-xs {!run &&
+          finalIndex === i
+            ? ''
+            : ''}"
+        >
+          {item}
+        </li>
       {/each}
     </ul>
   </div>

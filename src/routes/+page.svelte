@@ -4,7 +4,7 @@
   import ControllerBar from "./ControllerBar.svelte";
 </script>
 
-<main class="w-1/2 space-y-6">
+<main class="w-3/4 md:w-1/2 space-y-6">
   <Title />
   <ControllerBar />
   <RollerWheel />
