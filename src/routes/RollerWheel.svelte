@@ -39,6 +39,9 @@
     run = !run;
     if (run) {
       finalIndex = list.length + 999;
+      list = list.sort(function () {
+        return 0.5 - Math.random();
+      });
     }
     let index = Math.round(ty / itemHeight);
 
@@ -74,7 +77,8 @@
           class="font-bold text-5xl md:text-6xl font-mono blur-xs {!run &&
           finalIndex === i
             ? ''
-            : ''}"
+            : 'text-gray-300'}
+            "
         >
           {item}
         </li>
@@ -87,8 +91,16 @@
   <button
     on:click={doGo}
     class="bg-yellow-400 disabled:bg-gray-300 text-white w-full rounded px-4 py-2 mt-5"
-    disabled={$editModel}>Go / Stop</button
+    disabled={$editModel}
   >
+    {#if run}
+      Stop
+    {:else if finalIndex === -1}
+      Go / Stop
+    {:else}
+      Go
+    {/if}
+  </button>
 </div>
 
 <style>

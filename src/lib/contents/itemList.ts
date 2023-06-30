@@ -1,5 +1,4 @@
 export const defaultItemList = [
-    "炒年糕",
     "馄饨",
     "拉面",
     "烩面",
@@ -37,5 +36,4 @@ export const defaultItemList = [
     "煎饼果子",
     "生煎",
     "炒年糕",
-    "馄饨",
 ]
