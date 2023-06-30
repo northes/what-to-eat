@@ -6,7 +6,7 @@
   import Footer from "./Footer.svelte";
 </script>
 
-<main class="w-3/4 space-y-6 max-w-lg">
+<main class="w-3/4 max-w-lg space-y-6">
   <Title />
   <ControllerBar />
   <RollerWheel />
