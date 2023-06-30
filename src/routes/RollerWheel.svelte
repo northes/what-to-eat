@@ -64,7 +64,7 @@
 
 <div>
   <div
-    class="relative h-32 md:h-40 border-2 border-gray-200 rounded overflow-hidden"
+    class="relative h-32 overflow-hidden rounded border-2 border-gray-200 md:h-40"
   >
     <ul
       class="absolute left-0 top-0 w-full text-center {!run
@@ -74,7 +74,7 @@
     >
       {#each list as item, i}
         <li
-          class="font-bold text-5xl md:text-6xl font-mono blur-xs {!run &&
+          class="blur-xs font-mono text-5xl font-bold md:text-6xl {!run &&
           finalIndex === i
             ? ''
             : 'text-gray-300'}
@@ -90,7 +90,7 @@
 <div>
   <button
     on:click={doGo}
-    class="bg-yellow-400 disabled:bg-gray-300 text-white w-full rounded px-4 py-2 mt-5"
+    class="mt-5 w-full rounded bg-yellow-400 px-4 py-2 text-white disabled:bg-gray-300"
     disabled={$editModel}
   >
     {#if run}
