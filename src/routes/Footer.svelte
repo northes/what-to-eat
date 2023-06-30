@@ -1,4 +1,6 @@
-<div class="w-full pt-24 font-mono text-xs text-gray-300">
+<div
+  class="w-full pt-24 font-mono text-xs text-gray-200 transition-colors hover:text-gray-300"
+>
   <div class="flex flex-col items-center justify-center gap-2">
     <div>
       Poswered By 👾 <a
